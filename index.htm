@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebifyMX | Diseño y Desarrollo Web Profesional</title>
+    <style>
+        /* Estilos básicos para dar personalidad a WebifyMX */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa; /* Fondo más suave */
+        }
+
+        header {
+            background: #1a2a46; /* Azul oscuro elegante */
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #007bff; /* Azul brillante para el logo */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff; /* Resaltar al pasar el mouse */
+        }
+
+        /* Sección Hero (Presentación) */
+        .hero {
+            background: linear-gradient(rgba(26,42,70,0.7), rgba(26,42,70,0.7)), url('https://images.unsplash.com/photo-1542744095-291d1f67b225?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            background: #007bff; /* Azul brillante */
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero a:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Contenedor de Servicios */
+        .services {
+            padding: 80px 5%;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1a2a46;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: #1a2a46;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Sección de Opiniones */
+        .testimonials {
+            padding: 80px 5%;
+            text-align: center;
+            background: #e9ecef; /* Fondo ligeramente gris */
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1a2a46;
+        }
+
+        .stars {
+            color: gold;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: pulseStar 1.5s infinite alternate; /* Animación para las estrellas */
+        }
+
+        @keyframes pulseStar {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto; /* Permite el desplazamiento horizontal si hay muchas */
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px; /* Espacio para la barra de desplazamiento */
+        }
+
+        .testimonial-card {
+            flex: 0 0 320px; /* Ancho fijo para cada tarjeta, ajusta si es necesario */
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 0 15px;
+            text-align: left;
+            scroll-snap-align: start;
+            animation: slideIn 0.8s ease-out forwards; /* Animación para las tarjetas */
+        }
+
+        /* Animación de entrada para las tarjetas de testimonios */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .testimonial-card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            float: left; /* Para que el texto envuelva la imagen */
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #1a2a46;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+            clear: both; /* Limpia el float de la imagen */
+        }
+
+        /* Formulario de Contacto */
+        .contact {
+            padding: 80px 5%;
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #1a2a46;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        input, textarea {
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+        button[type="submit"] {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a2a46;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        /* Botón de WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float i {
+            margin-top: 0px; /* Ajuste si el icono no está centrado */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">WebifyMX</div>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#opiniones">Opiniones</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Impulsa tu negocio al mundo digital</h1>
+        <p>Creamos sitios web modernos, rápidos y optimizados.</p>
+        <a href="#contacto">Cotizar ahora</a>
+    </section>
+
+    <section id="servicios" class="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1457224095-f126ed23c8a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Landing Pages">
+                <h3>Landing Pages</h3>
+                <p>Páginas de aterrizaje enfocadas en convertir visitantes en clientes, con diseños que impactan y generan resultados.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1517292987717-ee9b190f38b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="E-commerce">
+                <h3>E-commerce</h3>
+                <p>Tiendas en línea completas y seguras para vender tus productos 24/7. Gestiona tu inventario, pagos y envíos fácilmente.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1516054571201-97af06d69800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Mantenimiento Web">
+                <h3>Mantenimiento Web</h3>
+                <p>Cuidamos tu sitio para que siempre esté actualizado, rápido y seguro. Despreocúpate de la parte técnica y enfócate en tu negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="opiniones" class="testimonials">
+        <h2>Lo que nuestros clientes dicen</h2>
+        <div class="stars">★★★★★</div>
+        <p style="font-style: italic; font-size: 1.2em; color: #555; margin-bottom: 40px;">"¡WebifyMX ha transformado la presencia online de innumerables negocios!"</p>
+
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Sánchez">
+                <h4>Ana Sánchez, <br><span>Dueña de "Floristería El Jardín"</span></h4>
+                <p>"¡WebifyMX creó la página web de mis sueños! Las ventas de mi floristería han aumentado un 30% desde que lanzamos el sitio. Su profesionalismo y atención al detalle son impecables. ¡Recomendadísimos!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Carlos Pérez">
+                <h4>Carlos Pérez, <br><span>CEO "Gimnasio Fuerza Extrema"</span></h4>
+                <p>"Servicio rápido y eficiente. Tenía mi gimnasio hora y media después de hablar con ellos con una web lista para recibir clientes. ¡Mi nueva web es fantástica! Gracias WebifyMX, ¡los recomiendo a todos!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/8.jpg" alt="María Lopez">
+                <h4>María López, <br><span>Emprendedora "Dulces Sueños"</span></h4>
+                <p>"Necesitaba una tienda online para mis postres caseros y WebifyMX superó mis expectativas. El diseño es precioso y muy fácil de usar para mis clientes. ¡Ahora vendo a toda la ciudad!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Javier García">
+                <h4>Javier García, <br><span>Director "Consultoría Global"</span></h4>
+                <p>"La nueva web corporativa que WebifyMX nos hizo es justo lo que necesitábamos. Profesional, limpia y nos ha ayudado a cerrar más negocios. Su equipo es muy atento y responden rápido."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <h2>Hablemos de tu proyecto</h2>
+        <p>¿Listo para llevar tu negocio al siguiente nivel? Contáctanos y cuéntanos tu idea.</p>
+        <form>
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu correo electrónico" required>
+            <input type="tel" placeholder="Tu número de teléfono (opcional)">
+            <textarea rows="6" placeholder="Cuéntanos sobre tu idea o proyecto..." required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 WebifyMX - Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/5523996539?text=Hola,%20me%20interesa%20un%20sitio%20web%20para%20mi%20negocio." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
