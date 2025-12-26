@@ -28,7 +28,6 @@
         .logo { font-size: 1.8rem; font-weight: bold; color: #007bff; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 
-        /* Usamos landing.jpg también para el fondo principal */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('landing.jpg');
             background-size: cover;
@@ -58,10 +57,7 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
         }
-
-        .service-card:hover { transform: translateY(-10px); }
 
         .service-card img {
             width: 100%;
@@ -71,21 +67,12 @@
             margin-bottom: 15px;
         }
 
-        /* Opiniones con movimiento */
-        .testimonials { 
-            background: #0046ff; 
-            color: white; 
-            padding: 60px 0; 
-            text-align: center; 
-            overflow: hidden; 
-        }
+        .testimonials { background: #0046ff; color: white; padding: 60px 0; text-align: center; overflow: hidden; }
         
-        .stars { color: #ffcc00; font-size: 1.5rem; margin-bottom: 10px; }
-
         .moving-track {
             display: flex;
             width: calc(300px * 10);
-            animation: scroll 25s linear infinite;
+            animation: scroll 20s linear infinite;
         }
 
         @keyframes scroll {
@@ -95,11 +82,10 @@
 
         .opinion-card {
             background: rgba(255,255,255,0.15);
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
             margin: 0 15px;
             min-width: 250px;
-            backdrop-filter: blur(5px);
         }
 
         .ws-btn {
@@ -127,80 +113,46 @@
         <div class="logo">WebifyMX</div>
         <nav>
             <a href="#servicios">Servicios</a>
-            <a href="#opiniones">Opiniones</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>WebifyMX</h1>
         <p>Expertos en diseño y desarrollo web profesional</p>
-        <a href="https://wa.me/521" style="background:#007bff; color:white; padding:15px 35px; border-radius:50px; text-decoration:none; font-weight:bold; font-size: 1.1rem;">¡Quiero mi página!</a>
+        <a href="https://wa.me/521" style="background:#007bff; color:white; padding:15px 35px; border-radius:50px; text-decoration:none; font-weight:bold;">¡Contáctanos!</a>
     </section>
 
     <section id="servicios" class="services">
-        <h2>Nuestros Servicios de Calidad</h2>
+        <h2>Nuestros Servicios</h2>
         <div class="services-grid">
             <div class="service-card">
                 <img src="landing.jpg" alt="Landing Page">
                 <h3>Landing Pages</h3>
-                <p>Elegantes y directas. Ideales para captar clientes nuevos de inmediato.</p>
             </div>
             <div class="service-card">
-                <img src="ecommerce.jpg" alt="Tienda Online">
+                <img src="ecommerce.jpg" alt="E-commerce">
                 <h3>E-Commerce</h3>
-                <p>Tu tienda lista para vender productos físicos o digitales en todo el país.</p>
             </div>
             <div class="service-card">
                 <img src="mantenimiento.jpg" alt="Mantenimiento">
                 <h3>Mantenimiento</h3>
-                <p>Nosotros nos encargamos de que tu web siempre esté activa y sin errores.</p>
             </div>
         </div>
     </section>
 
-    <section id="opiniones" class="testimonials">
-        <h2 style="margin-bottom: 40px;">La gente dice que somos un excelente servicio</h2>
+    <section class="testimonials">
         <div class="moving-track">
-            <div class="opinion-card">
-                <div class="stars">★★★★★</div>
-                <p>"¡Increíble servicio! WebifyMX entregó todo a tiempo."</p>
-                <strong>- Ricardo Sosa</strong>
-            </div>
-            <div class="opinion-card">
-                <div class="stars">★★★★★</div>
-                <p>"La mejor inversión para mi negocio este año."</p>
-                <strong>- Lucia Méndez</strong>
-            </div>
-            <div class="opinion-card">
-                <div class="stars">★★★★★</div>
-                <p>"Súper profesionales y atentos. 100% recomendados."</p>
-                <strong>- Antonio Ortiz</strong>
-            </div>
-            <div class="opinion-card">
-                <div class="stars">★★★★★</div>
-                <p>"Mi página se ve genial en celulares. ¡Gracias!"</p>
-                <strong>- Elena Ramos</strong>
-            </div>
-            <div class="opinion-card">
-                <div class="stars">★★★★★</div>
-                <p>"¡Increíble servicio! WebifyMX entregó todo a tiempo."</p>
-                <strong>- Ricardo Sosa</strong>
-            </div>
-            <div class="opinion-card">
-                <div class="stars">★★★★★</div>
-                <p>"La mejor inversión para mi negocio este año."</p>
-                <strong>- Lucia Méndez</strong>
-            </div>
+            <div class="opinion-card">⭐⭐⭐⭐⭐<br>"Excelente servicio."</div>
+            <div class="opinion-card">⭐⭐⭐⭐⭐<br>"Muy profesionales."</div>
+            <div class="opinion-card">⭐⭐⭐⭐⭐<br>"La mejor opción."</div>
+            <div class="opinion-card">⭐⭐⭐⭐⭐<br>"Me encantó mi web."</div>
+            <div class="opinion-card">⭐⭐⭐⭐⭐<br>"Excelente servicio."</div>
         </div>
     </section>
 
     <a href="https://wa.me/521" class="ws-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <footer style="text-align:center; padding: 50px; background:#1a2a46; color:white;">
-        <p style="margin:0;">&copy; 2024 WebifyMX - Calidad y Rapidez Garantizada</p>
-    </footer>
 
 </body>
 </html>
